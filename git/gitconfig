@@ -1,0 +1,7 @@
+[user]
+	name = Aliphon
+	email = redshiftkeying@gmail.com
+[core]
+	editor = vim
+[commit]
+	template = ~/.git-commit-template
