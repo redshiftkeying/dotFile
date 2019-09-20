@@ -13,8 +13,9 @@ pip3 install thefuck
 pip3 install thefuck --upgrade
 
 ## TODO
-1.flutter configure 
-2.mac add brew linux add ubuntu\debian
+1.flutter configure   
+2.mac add brew linux add ubuntu\debian   
+3.支持noevim的配额   
 
 # vimrc
 ## youCompleteMe 的额外安装
@@ -22,6 +23,3 @@ apt install cmake
 cd ~/.vim/bundle/YouCompleteMe   
 ./install.py --golang-completer   
 ./install.py --all
-## todo
-支持noevim的配额
-
