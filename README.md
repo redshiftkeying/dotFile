@@ -2,6 +2,10 @@
 ## 安装依赖
 ### antigen.zsh 文件
 curl -L git.io/antigen > antigen.zsh
+### vundle 安装
+mkdir -p ~/.vim/bundle/   
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim   
+
 ### powerline 字体
 git clone https://github.com/powerline/fonts.git   
 cd fonts   
