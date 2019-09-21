@@ -21,7 +21,7 @@ pip3 install thefuck --upgrade
 ## youCompleteMe 的额外安装
 apt install cmake   
 cd ~/.vim/bundle/YouCompleteMe   
-./install.py --golang-completer   
+./install.py --go-completer   
 ./install.py --all
 
 # FQA
@@ -34,5 +34,8 @@ Ignore insecure directories and continue [y] or abort compinit [n]?
 ```
 sudo chmod -R 755 ~/.antigen/bundles
 ```
-使用 antigen update 时候需要给w的权限   
+使用 antigen update 时候需要给w的权限
+```
+sudo chmod -R 765 ~/.antigen/bundles
+```   
 
