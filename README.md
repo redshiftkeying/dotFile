@@ -2,10 +2,6 @@
 ## 安装依赖
 ### antigen.zsh 文件
 curl -L git.io/antigen > antigen.zsh
-### vundle 安装
-mkdir -p ~/.vim/bundle/   
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim   
-
 ### powerline 字体
 git clone https://github.com/powerline/fonts.git   
 cd fonts   
@@ -27,3 +23,16 @@ apt install cmake
 cd ~/.vim/bundle/YouCompleteMe   
 ./install.py --golang-completer   
 ./install.py --all
+
+# FQA
+1.出现：   
+```
+zsh compinit: insecure directories, run compaudit for list.
+Ignore insecure directories and continue [y] or abort compinit [n]? 
+```
+使用：   
+```
+sudo chmod -R 755 ~/.antigen/bundles
+```
+使用 antigen update 时候需要给w的权限   
+
