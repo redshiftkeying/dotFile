@@ -21,8 +21,8 @@ pip3 install thefuck --upgrade
 ## youCompleteMe 的额外安装
 apt install cmake   
 cd ~/.vim/bundle/YouCompleteMe   
-./install.py --go-completer   
-./install.py --all
+python3 ./install.py --go-completer   
+:q
 
 # FQA
 1.出现：   
@@ -38,4 +38,6 @@ sudo chmod -R 755 ~/.antigen/bundles
 ```
 sudo chmod -R 765 ~/.antigen/bundles
 ```   
+2.统一版本使用python3   
+检查vim --version 是否支持python3以及使用python3 编译ycm   
 
