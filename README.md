@@ -22,7 +22,9 @@ pip3 install thefuck --upgrade
 apt install cmake   
 cd ~/.vim/bundle/YouCompleteMe   
 python3 ./install.py --go-completer   
-:q
+
+# golang 1.13 设置
+go env -w GOPROXY=https://goproxy.cn,direct
 
 # FQA
 1.出现：   
