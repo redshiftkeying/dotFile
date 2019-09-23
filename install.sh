@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# base function
-# 获取平台类型，mac还是linux平台
-function get_platform_type()
-{
-    echo $(uname)
-}
-
 # different platform
 # 安装mac平台必要软件
 function install_prepare_software_on_mac()
@@ -40,6 +33,13 @@ function install_antigen()
   ln -s ${PWD}/zsh/zshrc.symlink ~/.zshrc
 }
 
+# noevin 安装配置
+function install_nvim_configure()
+{
+  rm -rf ~/.config/nvim
+  mkdir -p ~/.config/nvim
+  ln -s ${PWD}/vim/vimrc.symlink ~/.config/nvim/init.vim
+}
 # Linux 安装
 function install_on_linux()
 {
@@ -47,6 +47,7 @@ function install_on_linux()
   downlaod_vundle
   install_vim_plugin
   install_antigen
+  install_nvim_configure
 }
 
 # macos 安装
@@ -57,16 +58,19 @@ function install_on_mac()
   downlaod_vundle
   install_vim_plugin
   install_antigen
+  install_nvim_configure
 }
 
 # main function
 function main()
 {
   type = 'get_platform_type'
-  if [ ${type} == "Darwin" ]; then
+  if [ $(uname) == "Darwin" ];then
         install_on_mac
-  else [ ${type} == "Linux" ];
+      elif [ $(uname) == "Linux" ];then
         install_on_linux
+      else
+        echo "System not found "
   fi
 }
 

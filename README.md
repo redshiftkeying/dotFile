@@ -41,3 +41,9 @@ sudo chmod -R 765 ~/.antigen/bundles
 2.统一版本使用python3   
 检查vim --version 是否支持python3以及使用python3 编译ycm   
 
+3.neovim 支持   
+```
+brew install neovim
+brew install python3
+pip3 install neovim --upgrade
+```

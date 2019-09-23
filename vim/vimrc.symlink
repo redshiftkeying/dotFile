@@ -25,6 +25,13 @@ set autoread                  " 自动重载改动的文件
 set ttimeoutlen=0        " 设置<ESC>键响应时间
 set confirm             " 在处理未保存或只读文件的时候，弹出确认
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NeoVim 设置
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has('nvim')
+   let g:python3_host_prog = '/usr/local/bin/python3'
+   let g:python_host_prog = '/usr/local/bin/python'
+endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 文本格式和排版
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set list                        " 显示Tab符，->
@@ -228,7 +235,7 @@ let g:ycm_warning_symbol = '✹'
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
-let g:ycm_server_python_interpreter = '/usr/bin/python3'
+let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
 nnoremap <leader>u :YcmCompleter GoToDeclaration<cr>
 nnoremap <leader>gd :YcmCompleter GoToDefinition<cr>
 nmap <F5> :YcmDiags<cr>
@@ -250,5 +257,3 @@ au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
 autocmd BufNewFile,BufReadPost *.md setl ts=4 sw=4 sts=4 expandtab
 autocmd FileType dockerfile set noexpandtab
 
-" spell check for git commits
-autocmd FileType gitcommit setlocal spell
