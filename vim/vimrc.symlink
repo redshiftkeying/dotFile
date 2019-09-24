@@ -28,8 +28,12 @@ set confirm             " 在处理未保存或只读文件的时候，弹出确
 " NeoVim 设置
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('nvim')
+  if has('mac')
    let g:python3_host_prog = '/usr/local/bin/python3'
    let g:python_host_prog = '/usr/local/bin/python'
+  endif
+  let g:python3_host_prog = '/usr/bin/python3'
+  let g:python_host_prog = '/usr/bin/python'
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 文本格式和排版
