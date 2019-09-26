@@ -162,6 +162,9 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'iamcco/mathjax-support-for-mkdp'
 "Plugin 'iamcco/markdown-preview.vim'
 
+" graphql 插件
+Plugin 'jparise/vim-graphql'
+
 " Dockerfile 插件
 Plugin 'ekalinin/Dockerfile.vim'
 
