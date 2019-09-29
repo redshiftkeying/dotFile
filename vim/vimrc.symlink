@@ -152,6 +152,8 @@ Plugin 'mattn/emmet-vim'
 
 " JavaScript 语法插件
 Plugin 'pangloss/vim-javascript'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'prettier/vim-prettier'
 
 " React 支持
 Plugin 'mxw/vim-jsx'
@@ -251,7 +253,6 @@ endif
 let g:ycm_server_python_interpreter = '/usr/bin/python3'
 nnoremap <leader>u :YcmCompleter GoToDeclaration<cr>
 nnoremap <leader>gd :YcmCompleter GoToDefinition<cr>
-nmap <F5> :YcmDiags<cr>
 
 " React jsx 设置
 let g:jsx_ext_required = 1
@@ -271,6 +272,13 @@ au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.cpp setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.hpp setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
+au FileType javascript setlocal formatprg=prettier
+au FileType javascript.jsx setlocal formatprg=prettier
+au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+au FileType html setlocal formatprg=js-beautify\ --type\ html
+au FileType scss setlocal formatprg=prettier\ --parser\ css
+au FileType css setlocal formatprg=prettier\ --parser\ css
+" 格式化整个文档 快捷键绑定
+nnoremap <F5> mzgggqG`z
 autocmd BufNewFile,BufReadPost *.md setl ts=4 sw=4 sts=4 expandtab
 autocmd FileType dockerfile set noexpandtab
-

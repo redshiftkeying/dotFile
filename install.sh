@@ -24,6 +24,14 @@ function download_vundle()
 function install_vim_plugin()
 {
   vim -c "PlugInstall" -c "q" -c "q"
+  add_editorconfig_config
+}
+
+# 添加配置 editorconfig
+function add_editorconfig_config()
+{
+  rm ~/.vim/.editorconfig
+  ln -s ${PWD}/vim/editorconfig ~/.vim/.editorconfig
 }
 
 # zsh install
