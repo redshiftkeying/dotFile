@@ -31,9 +31,10 @@ if has('nvim')
   if has('mac')
    let g:python3_host_prog = '/usr/local/bin/python3'
    let g:python_host_prog = '/usr/local/bin/python'
+  else
+   let g:python3_host_prog = '/usr/bin/python3'
+   let g:python_host_prog = '/usr/bin/python'
   endif
-  let g:python3_host_prog = '/usr/bin/python3'
-  let g:python_host_prog = '/usr/bin/python'
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 文本格式和排版
@@ -249,8 +250,9 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 if has('mac')
   let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
+else
+  let g:ycm_server_python_interpreter = '/usr/bin/python3'
 endif
-let g:ycm_server_python_interpreter = '/usr/bin/python3'
 nnoremap <leader>u :YcmCompleter GoToDeclaration<cr>
 nnoremap <leader>gd :YcmCompleter GoToDefinition<cr>
 
