@@ -260,9 +260,6 @@ nnoremap <leader>gd :YcmCompleter GoToDefinition<cr>
 let g:jsx_ext_required = 1
 let g:jsx_pragma_required = 1
 
-" 退出插入模式指定类型的文件自动保存
-au InsertLeave *.go,*.sh,*.zsh write
-
 " ----------------------------------------- "
 "  " File Type settings               "
 " ----------------------------------------- "
@@ -274,13 +271,9 @@ au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.cpp setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.hpp setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
-au FileType javascript setlocal formatprg=prettier
-au FileType javascript.jsx setlocal formatprg=prettier
-au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
-au FileType html setlocal formatprg=js-beautify\ --type\ html
-au FileType scss setlocal formatprg=prettier\ --parser\ css
-au FileType css setlocal formatprg=prettier\ --parser\ css
-" 格式化整个文档 快捷键绑定
-nnoremap <F5> mzgggqG`z
 autocmd BufNewFile,BufReadPost *.md setl ts=4 sw=4 sts=4 expandtab
 autocmd FileType dockerfile set noexpandtab
+" prettier 设置
+let g:prettier#quickfix_enable = 0
+let g:prettier#autoformat = 0
+autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
