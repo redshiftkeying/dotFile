@@ -159,6 +159,10 @@ Plugin 'prettier/vim-prettier'
 " React 支持
 Plugin 'mxw/vim-jsx'
 
+" Typescript 支持
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
+
 " raindow 彩虹括号插件
 Plugin 'luochen1990/rainbow'
 " auto-pairs 自动匹配括号
