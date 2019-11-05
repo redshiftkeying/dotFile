@@ -172,6 +172,9 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'iamcco/mathjax-support-for-mkdp'
 "Plugin 'iamcco/markdown-preview.vim'
 
+" google 的 protobuf 插件
+Plugin 'uarun/vim-protobuf'
+
 " graphql 插件
 Plugin 'jparise/vim-graphql'
 
