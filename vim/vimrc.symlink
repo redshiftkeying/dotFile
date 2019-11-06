@@ -280,6 +280,10 @@ au BufNewFile,BufRead *.hpp setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
 autocmd BufNewFile,BufReadPost *.md setl ts=4 sw=4 sts=4 expandtab
 autocmd FileType dockerfile set noexpandtab
+" protobuf 设置
+augroup filetype
+  au! BufRead,BufNewFile *.proto setfiletype proto
+augroup end
 " prettier 设置
 let g:prettier#quickfix_enable = 0
 let g:prettier#autoformat = 0
