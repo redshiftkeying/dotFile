@@ -38,6 +38,9 @@ function add_editorconfig_config()
 function install_antigen()
 {
   rm ~/.zshrc
+  rm -rf ~/.antigen
+  mkdir -p ~/.antigen
+  curl -L git.io/antigen > ~/.antigen/antigen.zsh
   ln -s ${PWD}/zsh/zshrc.symlink ~/.zshrc
 }
 

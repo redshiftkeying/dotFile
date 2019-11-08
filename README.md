@@ -25,7 +25,7 @@ pip3 install thefuck --upgrade
 
 ### prettier 插件安装
 
-npm i -g prettier
+npm i -g prettier --registry=https://registry.npm.taobao.org
 
 ### js-beautify 插件安装
 
