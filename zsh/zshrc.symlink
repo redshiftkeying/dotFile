@@ -74,3 +74,6 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH=$PATH:/usr/local/go/bin
 # nodejs
 export PATH=$PATH:/usr/local/lib/nodejs/node-v10.16.3-linux-x64/bin
+# flutter
+export PATH=$PATH:/opt/android-studio/bin
+export PATH=$PATH:/opt/flutter/bin
