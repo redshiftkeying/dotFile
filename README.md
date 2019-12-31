@@ -23,6 +23,13 @@ apt install python3-dev python3-pip python3-setuptools
 pip3 install thefuck  
 pip3 install thefuck --upgrade
 
+## TODO
+
+1.flutter configure  
+2.mac add brew linux add ubuntu\debian
+
+# vimrc
+
 ### prettier 插件安装
 
 npm i -g prettier --registry=https://registry.npm.taobao.org
@@ -30,13 +37,6 @@ npm i -g prettier --registry=https://registry.npm.taobao.org
 ### js-beautify 插件安装
 
 npm i js-beautify -g --registry=https://registry.npm.taobao.org
-
-## TODO
-
-1.flutter configure  
-2.mac add brew linux add ubuntu\debian
-
-# vimrc
 
 ## youCompleteMe 的额外安装
 

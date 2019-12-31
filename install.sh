@@ -4,7 +4,37 @@
 # 安装mac平台必要软件
 function install_prepare_software_on_mac()
 {
-    brew install vim gcc cmake ctags-exuberant curl ack
+    brew install vim python3 gcc cmake ctags-exuberant curl ack
+}
+
+# 获取linux发行版名称
+function get_linux_distro()
+{
+    if grep -Eq "Ubuntu" /etc/*-release; then
+        echo "Ubuntu"
+    elif grep -Eq "Deepin" /etc/*-release; then
+        echo "Deepin"
+    elif grep -Eq "LinuxMint" /etc/*-release; then
+        echo "LinuxMint"
+    elif grep -Eq "elementary" /etc/*-release; then
+        echo "elementaryOS"
+    elif grep -Eq "Debian" /etc/*-release; then
+        echo "Debian"
+    elif grep -Eq "Kali" /etc/*-release; then
+        echo "Kali"
+    elif grep -Eq "CentOS" /etc/*-release; then
+        echo "CentOS"
+    elif grep -Eq "fedora" /etc/*-release; then
+        echo "fedora"
+    elif grep -Eq "openSUSE" /etc/*-release; then
+        echo "openSUSE"
+    elif grep -Eq "Arch Linux" /etc/*-release; then
+        echo "ArchLinux"
+    elif grep -Eq "ManjaroLinux" /etc/*-release; then
+        echo "ManjaroLinux"
+    else
+        echo "Unknow"
+    fi
 }
 
 # 拷贝文件
@@ -75,7 +105,6 @@ function install_on_mac()
 # main function
 function main()
 {
-  type = 'get_platform_type'
   if [ $(uname) == "Darwin" ];then
         install_on_mac
       elif [ $(uname) == "Linux" ];then
