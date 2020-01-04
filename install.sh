@@ -1,17 +1,10 @@
 #!/bin/bash
 
-# different platform
-# 安装mac平台必要软件
-function install_prepare_software_on_mac()
-{
-    brew install vim python3 gcc cmake ctags-exuberant curl ack
-}
-
 # 获取linux发行版名称
-function get_linux_distro()
+function install_on_linux()
 {
     if grep -Eq "Ubuntu" /etc/*-release; then
-        echo "Ubuntu"
+      install_on_ubuntu
     elif grep -Eq "Deepin" /etc/*-release; then
         echo "Deepin"
     elif grep -Eq "LinuxMint" /etc/*-release; then
@@ -35,6 +28,16 @@ function get_linux_distro()
     else
         echo "Unknow"
     fi
+}
+
+# 备份文件
+function backup_files()
+{
+  mkdir ${PWD}/backup/
+  cp ~/.zshrc ${PWD}/backup/
+  cp ~/.vimrc ${PWD}/backup/
+  cp ~/.vim/.editorconfig ${PWD}/backup/
+  cp ~/.config/nvim/init.vim ${PWD}/backup/
 }
 
 # 拷贝文件
@@ -81,9 +84,13 @@ function install_nvim_configure()
   mkdir -p ~/.config/nvim
   ln -s ${PWD}/vim/vimrc.symlink ~/.config/nvim/init.vim
 }
-# Linux 安装
-function install_on_linux()
+
+# Ubuntu 安装
+function install_on_ubuntu()
 {
+  # 安装平台依赖
+  sudo apt-get update -qq && sudo apt-get upgrade -yqq
+  sudo apt-get install neovim -y
   copy_files
   downlaod_vundle
   install_vim_plugin
@@ -94,7 +101,8 @@ function install_on_linux()
 # macos 安装
 function install_on_mac()
 {
-  install_prepare_software_on_mac
+  # 安装平台依赖
+  brew install vim python3 gcc cmake ctags-exuberant curl ack neovim
   copy_files
   downlaod_vundle
   install_vim_plugin

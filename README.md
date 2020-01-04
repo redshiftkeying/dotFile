@@ -23,11 +23,6 @@ apt install python3-dev python3-pip python3-setuptools
 pip3 install thefuck  
 pip3 install thefuck --upgrade
 
-## TODO
-
-1.flutter configure  
-2.mac add brew linux add ubuntu\debian
-
 # vimrc
 
 ### prettier 插件安装
