@@ -107,7 +107,7 @@ function add_editorconfig_config()
 function install_on_ubuntu()
 {
   # 安装平台依赖
-  sudo apt-get update -qq 
+  sudo apt-get update -qq
   sudo apt-get install python3-dev python3-pip python3-setuptools neovim cmake git -yqq
   backup_files
   copy_files
@@ -122,7 +122,7 @@ function install_on_mac()
   brew install vim python3 gcc cmake ctags-exuberant curl ack neovim golang
   backup_files
   copy_files
-  downlaod_vundle
+  download_vundle
   install_vim_plugin
 }
 

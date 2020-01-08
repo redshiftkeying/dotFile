@@ -31,7 +31,7 @@ npm i js-beautify -g --registry=https://registry.npm.taobao.org
 
 apt install cmake  
 cd ~/.vim/bundle/YouCompleteMe  
-python3 ./install.py --go-completer
+python3 ./install.py --all
 
 # golang 1.13 设置
 
