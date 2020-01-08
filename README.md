@@ -4,12 +4,6 @@
 
 # zhsrc
 
-## 安装依赖
-
-### antigen.zsh 文件
-
-curl -L git.io/antigen > antigen.zsh
-
 ### powerline 字体
 
 git clone https://github.com/powerline/fonts.git  
