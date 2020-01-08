@@ -2,6 +2,6 @@
 	name = Aliphon
 	email = redshiftkeying@gmail.com
 [core]
-	editor = vim
+	editor = nvim
 [commit]
 	template = ~/.git-commit-template

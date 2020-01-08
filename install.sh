@@ -6,57 +6,93 @@ function install_on_linux()
     if grep -Eq "Ubuntu" /etc/*-release; then
       install_on_ubuntu
     elif grep -Eq "Deepin" /etc/*-release; then
-        echo "Deepin"
+        echo "Deepin 暂不支持"
     elif grep -Eq "LinuxMint" /etc/*-release; then
-        echo "LinuxMint"
+        echo "LinuxMint 暂不支持"
     elif grep -Eq "elementary" /etc/*-release; then
-        echo "elementaryOS"
+        echo "elementaryOS 暂不支持"
     elif grep -Eq "Debian" /etc/*-release; then
-        echo "Debian"
+        echo "Debian 暂不支持"
     elif grep -Eq "Kali" /etc/*-release; then
-        echo "Kali"
+        echo "Kali 暂不支持"
     elif grep -Eq "CentOS" /etc/*-release; then
-        echo "CentOS"
+        echo "CentOS 暂不支持"
     elif grep -Eq "fedora" /etc/*-release; then
-        echo "fedora"
+        echo "fedora 暂不支持"
     elif grep -Eq "openSUSE" /etc/*-release; then
-        echo "openSUSE"
+        echo "openSUSE 暂不支持"
     elif grep -Eq "Arch Linux" /etc/*-release; then
-        echo "ArchLinux"
+        echo "ArchLinux 暂不支持"
     elif grep -Eq "ManjaroLinux" /etc/*-release; then
-        echo "ManjaroLinux"
+        echo "ManjaroLinux 暂不支持"
     else
-        echo "Unknow"
+        echo "Unknow 暂不支持"
     fi
+}
+# copy文件公用
+function f_copy_to_backup()
+{
+  filename=$1
+  if [ -f $filename ]; then
+    cp $filename ${PWD}/backup/
+  fi
 }
 
 # 备份文件
 function backup_files()
 {
-  mkdir ${PWD}/backup/
-  cp ~/.zshrc ${PWD}/backup/
-  cp ~/.vimrc ${PWD}/backup/
-  cp ~/.vim/.editorconfig ${PWD}/backup/
-  cp ~/.config/nvim/init.vim ${PWD}/backup/
+  if [ ! -d ${PWD}/backup/ ];then
+    mkdir ${PWD}/backup/
+    # zsh backup
+    f_copy_to_backup ~/.zshrc #cp ~/.zshrc ${PWD}/backup/
+    # vim & nvim backup
+    f_copy_to_backup ~/.vimrc #cp ~/.vimrc ${PWD}/backup/
+    f_copy_to_backup ~/.vim/.editorconfig #cp ~/.vim/.editorconfig ${PWD}/backup/
+    f_copy_to_backup ~/.config/nvim/init.vim #cp ~/.config/nvim/init.vim ${PWD}/backup/
+    # git backup
+    f_copy_to_backup ~/.gitconfig #cp ~/.gitconfig ${PWD}/backup/
+  fi
 }
 
 # 拷贝文件
 function copy_files()
 {
-    rm -rf ~/.vimrc
-    ln -s ${PWD}/vim/vimrc.symlink ~/.vimrc
+  # vim
+  rm -rf ~/.vimrc
+  ln -s ${PWD}/vim/vimrc.symlink ~/.vimrc
+  # nvim
+  rm -rf ~/.config/nvim
+  mkdir -p ~/.config/nvim
+  ln -s ${PWD}/vim/vimrc.symlink ~/.config/nvim/init.vim
+  # zsh
+  rm ~/.zshrc
+  rm -rf ~/.antigen
+  mkdir -p ~/.antigen
+  ln -s ${PWD}/assets/antigen.zsh ~/.antigen/antigen.zsh
+  ln -s ${PWD}/zsh/zshrc.symlink ~/.zshrc
+  # git
+  rm ~/.gitconfig
+  if [ -f ~/.git-commit-template ];then
+    rm ~/.git-commit-template
+  fi
+  ln -s ${PWD}/git/gitconfig ~/.gitconfig
+  ln -s ${PWD}/git/git-commit-template ~/.git-commit-template
+
 }
 
 # 安装插件
 function download_vundle()
 {
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  if [ ! -d ~/.vim/bundle/Vundle.vim/ ];then
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  fi
 }
 
 # 安装vim插件
 function install_vim_plugin()
 {
   vim -c "PlugInstall" -c "q" -c "q"
+  vim -c "GoInstallBinaries" -c "q" -c "q"
   add_editorconfig_config
 }
 
@@ -67,47 +103,27 @@ function add_editorconfig_config()
   ln -s ${PWD}/vim/editorconfig ~/.vim/.editorconfig
 }
 
-# zsh install
-function install_antigen()
-{
-  rm ~/.zshrc
-  rm -rf ~/.antigen
-  mkdir -p ~/.antigen
-  curl -L git.io/antigen > ~/.antigen/antigen.zsh
-  ln -s ${PWD}/zsh/zshrc.symlink ~/.zshrc
-}
-
-# noevin 安装配置
-function install_nvim_configure()
-{
-  rm -rf ~/.config/nvim
-  mkdir -p ~/.config/nvim
-  ln -s ${PWD}/vim/vimrc.symlink ~/.config/nvim/init.vim
-}
-
 # Ubuntu 安装
 function install_on_ubuntu()
 {
   # 安装平台依赖
-  sudo apt-get update -qq && sudo apt-get upgrade -yqq
-  sudo apt-get install neovim -y
+  sudo apt-get update -qq 
+  sudo apt-get install python3-dev python3-pip python3-setuptools neovim cmake git -yqq
+  backup_files
   copy_files
-  downlaod_vundle
+  download_vundle
   install_vim_plugin
-  install_antigen
-  install_nvim_configure
 }
 
 # macos 安装
 function install_on_mac()
 {
   # 安装平台依赖
-  brew install vim python3 gcc cmake ctags-exuberant curl ack neovim
+  brew install vim python3 gcc cmake ctags-exuberant curl ack neovim golang
+  backup_files
   copy_files
   downlaod_vundle
   install_vim_plugin
-  install_antigen
-  install_nvim_configure
 }
 
 # main function
