@@ -12,7 +12,7 @@ function install_on_linux()
     elif grep -Eq "elementary" /etc/*-release; then
         echo "elementaryOS 暂不支持"
     elif grep -Eq "Debian" /etc/*-release; then
-        echo "Debian 暂不支持"
+        install_on_debian
     elif grep -Eq "Kali" /etc/*-release; then
         echo "Kali 暂不支持"
     elif grep -Eq "CentOS" /etc/*-release; then
@@ -101,6 +101,18 @@ function add_editorconfig_config()
 {
   rm ~/.vim/.editorconfig
   ln -s ${PWD}/vim/editorconfig ~/.vim/.editorconfig
+}
+
+# Debian 安装
+function install_on_debian()
+{
+  # 安装平台依赖
+  sudo apt-get update -qq
+  sudo apt-get install python3-dev python3-pip python3-setuptools neovim cmake git -yqq
+  backup_files
+  copy_files
+  download_vundle
+  install_vim_plugin
 }
 
 # Ubuntu 安装
