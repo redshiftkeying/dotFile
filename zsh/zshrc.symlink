@@ -68,6 +68,8 @@ export DEFAULT_USER=`whoami`
 export GOPATH=$HOME/go
 export PATH="$PATH:$GOPATH/bin"
 
+# add sbin path
+export PATH=$PATH:/usr/local/sbin
 
 # # soft install
 # golang
@@ -79,3 +81,6 @@ export PATH=$PATH:/opt/android-studio/bin
 export PATH=$PATH:/opt/flutter/bin
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
 export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
