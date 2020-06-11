@@ -84,3 +84,5 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# sqlite in macos
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
