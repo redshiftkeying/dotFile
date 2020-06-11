@@ -182,7 +182,8 @@ Plugin 'jparise/vim-graphql'
 Plugin 'ekalinin/Dockerfile.vim'
 
 " 代码自动完成
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+
 
 call vundle#end()
 filetype plugin indent on
@@ -247,21 +248,6 @@ let javascript_enable_domhtmlcss = 1
 
 let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_key_invoke_completion = '<c-z>'
-
-" YCM
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_error_symbol = '✗'
-let g:ycm_warning_symbol = '✹'
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-if has('mac')
-  let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
-else
-  let g:ycm_server_python_interpreter = '/usr/bin/python3'
-endif
-nnoremap <leader>u :YcmCompleter GoToDeclaration<cr>
-nnoremap <leader>gd :YcmCompleter GoToDefinition<cr>
 
 " React jsx 设置
 let g:jsx_ext_required = 1

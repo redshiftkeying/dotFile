@@ -1,6 +1,9 @@
 # 版本说明
 
-此配置要求 vim 8 以上版本 或 nvim 0.4 版本
+此配置要求 vim 8 以上版本 或 nvim 0.4.3 版本
+
+nodejs >= 10.12  
+并且安装 yarn
 
 # zhsrc
 
@@ -26,12 +29,6 @@ npm i -g prettier --registry=https://registry.npm.taobao.org
 ### js-beautify 插件安装
 
 npm i js-beautify -g --registry=https://registry.npm.taobao.org
-
-## youCompleteMe 的额外安装
-
-apt install cmake  
-cd ~/.vim/bundle/YouCompleteMe  
-python3 ./install.py --all
 
 # golang 1.13 设置
 
