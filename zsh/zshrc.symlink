@@ -77,11 +77,15 @@ export PATH=$PATH:/usr/local/go/bin
 # nodejs
 export PATH=$PATH:/usr/local/lib/nodejs/node-v10.16.3-linux-x64/bin
 # flutter
-export PATH=$PATH:/opt/flutter/bin
+export PATH=$PATH:/usr/local/opt/flutter/bin
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
 export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# sqlite in macos
+# sqlite in macoszz
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
+
+# alias config
+alias vi='nvim'
+alias vim='nvim'
