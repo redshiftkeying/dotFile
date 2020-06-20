@@ -5,7 +5,7 @@
 nodejs >= 10.12  
 并且安装 yarn
 
-# zhsrc
+## zhsrc
 
 ### powerline 字体
 
@@ -20,7 +20,7 @@ apt install python3-dev python3-pip python3-setuptools
 pip3 install thefuck  
 pip3 install thefuck --upgrade
 
-# vimrc
+## vimrc
 
 ### prettier 插件安装
 
@@ -30,11 +30,11 @@ npm i -g prettier --registry=https://registry.npm.taobao.org
 
 npm i js-beautify -g --registry=https://registry.npm.taobao.org
 
-# golang 1.13 设置
+## golang 1.13 设置
 
 go env -w GOPROXY=https://goproxy.cn,direct
 
-# FQA
+## FQA
 
 1.出现：
 
@@ -65,14 +65,27 @@ brew install neovim
 brew install python3
 pip3 install neovim --upgrade
 ```
+
 ## new temp
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-ln -s ${PWD}/vim/config ~/.vim/config
+ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+ln -s \${PWD}/vim/config ~/.vim/config
 
 ### FQA
-neovim安装coc缺失bash-language-server   
+
+neovim 安装 coc 缺失 bash-language-server  
 npm i -g bash-language-server
+
+### neovim install
+
+```bash
+pip install pynvim
+pip3 install pynvim
+npm install -g neovim
+gem install neovim
+```
+
+## something else

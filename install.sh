@@ -65,6 +65,7 @@ function copy_files()
   rm -rf ~/.config/nvim
   mkdir -p ~/.config/nvim
   ln -s ${PWD}/vim/vimrc.symlink ~/.config/nvim/init.vim
+  ln -s ${PWD}/vim/coc-settings.json ~/.config/nvim/coc-settings.json
   # zsh
   rm ~/.zshrc
   rm -rf ~/.antigen

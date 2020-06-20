@@ -17,6 +17,9 @@ Plug 'ntpeters/vim-better-whitespace'
 "" Html plug
 " Emmet
 Plug 'mattn/emmet-vim'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " auto fill code
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -24,6 +27,6 @@ call plug#end()
 
 " some setting Todo move to another config file
 
-" config plug 
+" config plug
 nmap <F8> :TagbarToggle<CR>
 
