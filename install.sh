@@ -83,10 +83,11 @@ function copy_files()
 }
 
 # 安装插件
-function download_vundle()
+function download_plug()
 {
-  if [ ! -d ~/.vim/bundle/Vundle.vim/ ];then
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  if [ ! -d ~/.vim/autoload/plug.vim/ ];then
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   fi
 }
 
@@ -95,6 +96,7 @@ function install_vim_plugin()
 {
   vim -c "PlugInstall" -c "q" -c "q"
   vim -c "GoInstallBinaries" -c "q" -c "q"
+  vim -c 'CocInstall -sync coc-json coc-go coc-css coc-flutter coc-git coc-highlight coc-spell-checker coc-sql coc-eslint coc-vimlsp coc-html|q'
   add_editorconfig_config
 }
 
@@ -113,7 +115,7 @@ function install_on_debian()
   sudo apt-get install python3-dev python3-pip python3-setuptools neovim cmake git -yqq
   backup_files
   copy_files
-  download_vundle
+  download_plug
   install_vim_plugin
 }
 
@@ -125,7 +127,7 @@ function install_on_ubuntu()
   sudo apt-get install python3-dev python3-pip python3-setuptools neovim cmake git -yqq
   backup_files
   copy_files
-  download_vundle
+  download_plug
   install_vim_plugin
 }
 
@@ -136,7 +138,7 @@ function install_on_mac()
   brew install vim python3 gcc cmake ctags-exuberant curl ack neovim golang
   backup_files
   copy_files
-  download_vundle
+  download_plug
   install_vim_plugin
 }
 
