@@ -60,6 +60,7 @@ function copy_files()
   # vim
   rm -rf ~/.vimrc
   ln -s ${PWD}/vim/vimrc.symlink ~/.vimrc
+  ln -s ${PWD}/vim/config ~/.vim/config
   # nvim
   rm -rf ~/.config/nvim
   mkdir -p ~/.config/nvim

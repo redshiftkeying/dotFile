@@ -1,4 +1,4 @@
-# 版本说明
+# Release notes
 
 此配置要求 vim 8 以上版本 或 nvim 0.4.3 版本
 
@@ -65,3 +65,13 @@ brew install neovim
 brew install python3
 pip3 install neovim --upgrade
 ```
+## new temp
+
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+ln -s ${PWD}/vim/config ~/.vim/config
+
+### FQA
+neovim安装coc缺失bash-language-server   
+npm i -g bash-language-server
