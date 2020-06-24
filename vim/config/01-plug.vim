@@ -21,6 +21,11 @@ Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
+" auto pairs
+Plug 'jiangmiao/auto-pairs'
+" rainbow
+Plug 'luochen1990/rainbow'
+
 " auto fill code
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
