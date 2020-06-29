@@ -64,6 +64,7 @@ endfunction
 
 inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
