@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+brew install fzf
 vim -c "PlugInstall" -c "q" -c "q"
 vim -c "PlugUpdate" -c "q" -c "q"
 vim -c "PlugUpgrade" -c "q" -c "q"

@@ -135,7 +135,7 @@ function install_on_ubuntu()
 function install_on_mac()
 {
   # 安装平台依赖
-  brew install vim python3 gcc cmake ctags-exuberant curl ack neovim golang
+  brew install vim python3 gcc cmake ctags-exuberant curl ack neovim golang fzf
   backup_files
   copy_files
   download_plug
